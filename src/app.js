@@ -7,8 +7,23 @@
 
 var MoleculeConstructor = function () {
 	var atoms = {};
+
 	var registerAtom = function (atom, data) {
 		atoms[data.name] = atom;
+
+
+		/// DEBUGGING
+		var paper = d3.select('.container').append('svg')
+			.attr('width', 500)
+			.attr('height', 300);
+
+
+		var a = atom();
+		a.init(
+			{label:"pizza left", "value":3},
+			{label:"pizza gone", "value":5}
+		);
+		a.draw(paper);
 	};
 
 	return Object.freeze({
@@ -17,6 +32,17 @@ var MoleculeConstructor = function () {
 	});
 };
 
+function tests () {
+	var atoms = Molecule.getAtoms();
+
+
+	console.log(atoms);
+};
+
+
 Molecule = MoleculeConstructor();
 
-console.log("Molecule created")
+
+
+
+tests();
