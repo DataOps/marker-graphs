@@ -19,10 +19,10 @@ var MoleculeConstructor = function () {
 
 
 		var a = atom();
-		a.init(
+		a.init([
 			{label:"pizza left", "value":3},
 			{label:"pizza gone", "value":5}
-		);
+		]);
 		a.draw(paper);
 	};
 

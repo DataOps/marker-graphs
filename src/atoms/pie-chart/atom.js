@@ -47,33 +47,31 @@ function PieChart(){
 
 		var radius = 100;
 
-		// paper.data([data])
-		// 	.attr("transform", "translate(" + radius + "," + radius + ")"); // move in cavas
+		
 
-		// // var pie = d3.layout.pie([data]);
+		
+		var pie = d3.layout.pie();
+		pie.value(function(d){return d.value;});
 
-		// var pie = d3.layout.pie([1,2,4]);
-		// 	// .value(function(d){return d.value;});
+		var arc = d3.svg.arc()
+			.outerRadius(radius);
 
-		// 	// .data([data])
-
-		// // pie.value(function(d){return d.value;});
-
-		// var arc = d3.svg.arc().outerRadius(radius);
 
 
 		// // select paths, use arc generator to draw
-		// paper.selectAll('.asd').enter()
-		// 	.data(pie)
+		var slices = paper.selectAll('.slice')
+			.data(pie(data));
 
 
+		var g = slices.enter()
+			.append("g");
+
+		 g.append("path")
+			.attr("d", arc)
+			.style("fill", function(d,i) { return "#" + (555*i); })
+			.attr("transform", "translate(" + radius + "," + radius + ")"); // move in cavas
 
 
-		paper.append('circle')
-			.attr('r', radius)
-			.attr('cx', 100)
-			.attr('cy', 100)
-			.attr('fill', "#333");
 	};
 
 		// init:init
