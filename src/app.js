@@ -20,8 +20,10 @@ var MoleculeConstructor = function () {
 
 		var a = atom();
 		a.init([
-			{label:"pizza left", "value":3},
-			{label:"pizza gone", "value":5}
+			{label:"value1", "value":3},
+			{label:"value2", "value":5},
+			{label:"value3", "value":1},
+			{label:"value4", "value":8}
 		]);
 		a.draw(paper);
 	};

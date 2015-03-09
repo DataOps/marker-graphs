@@ -68,7 +68,7 @@ function PieChart(){
 
 		 g.append("path")
 			.attr("d", arc)
-			.style("fill", function(d,i) { return "#" + (555*i); })
+			.style("fill", function(d,i) { return "#" + (111*i); })
 			.attr("transform", "translate(" + radius + "," + radius + ")"); // move in cavas
 
 
