@@ -13,17 +13,11 @@ function ScatterPlot(){
 
 	// default properties for the Atom
 	var defaults = {
-		chart:{
-			background: "white",
-			foreground: "#333"
-		},
-		lines:{},
-		highest:{
-			color:"red"
-		},
-		barWidth: 50,
-		barMargin: 20,
-		labelSize: 20
+		
+		dotRadius: 3.5,
+		dotColor: "#000000"
+
+		
 	};
 
 	// called by library
@@ -49,15 +43,15 @@ function ScatterPlot(){
 		height = 500 - margin.top - margin.bottom;
 
 		// setup x 
-		var xValue = function(d) { return d.x;}, // data -> value
-			xScale = d3.scale.linear().range([0, width]), // value -> display
-			xMap = function(d) { return xScale(xValue(d));}, // data -> display
-			xAxis = d3.svg.axis().scale(xScale).orient("bottom");
+		var xValue = function(d) { return d.x;}, 
+			xScale = d3.scale.linear().range([0, width]), //set xscale 
+			xMap = function(d) { return xScale(xValue(d));}, //map to datavalue
+			xAxis = d3.svg.axis().scale(xScale).orient("bottom"); //attach scale to visual axis
 
 		// setup y
-		var yValue = function(d) { return d.y;}, // data -> value
-			yScale = d3.scale.linear().range([height, 0]), // value -> display
-			yMap = function(d) { return yScale(yValue(d));}, // data -> display
+		var yValue = function(d) { return d.y;}, 
+			yScale = d3.scale.linear().range([height, 0]),
+			yMap = function(d) { return yScale(yValue(d));}, 
 			yAxis = d3.svg.axis().scale(yScale).orient("left");
 
 		var svg = paper
@@ -72,11 +66,9 @@ function ScatterPlot(){
 
 		// x-axis
 		svg.append("g")
-			.attr("class", "x axis")
 			.attr("transform", "translate(0," + height + ")")
 			.call(xAxis)
 		.append("text")
-			.attr("class", "label")
 			.attr("x", width)
 			.attr("y", -6)
 			.style("text-anchor", "end")
@@ -84,10 +76,8 @@ function ScatterPlot(){
 
 		// y-axis
 		svg.append("g")
-			.attr("class", "y axis")
 			.call(yAxis)
 		.append("text")
-			.attr("class", "label")
 			.attr("transform", "rotate(-90)")
 			.attr("y", 6)
 			.attr("dy", ".71em")
@@ -98,19 +88,20 @@ function ScatterPlot(){
 			.data(data)
 		.enter().append("circle")
 			.attr("class", "dot")
-			.attr("r", 3.5)
+			.style("fill", defaults.dotColor)
+			.attr("r", defaults.dotRadius)
 			.attr("cx", xMap)
-			.attr("cy", yMap)
-			.style("fill", 'black'); 
-
+			.attr("cy", yMap);
 
 
 	};
 
-		// init:init
+	// init:init
 	return Object.freeze({
 		init: init,
-		draw: draw
+		draw: draw,
+		getDefaults: function(){return defaults;}
+
 	});
 };
 
