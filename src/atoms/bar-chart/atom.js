@@ -59,7 +59,7 @@ function BarChart(){
 				.attr('fill', '#dd7777')
 				.attr('height',0)
 				.attr('y', paperHeight - defaults.labelSize)
-				
+
 				.transition()
 				.attr('height', function (d) {
 					return d.value;
@@ -87,7 +87,8 @@ function BarChart(){
 		// init:init
 	return Object.freeze({
 		init: init,
-		draw: draw
+		draw: draw,
+		getDefaults: function(){return defaults;}
 	});
 };
 

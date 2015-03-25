@@ -77,7 +77,8 @@ function PieChart(){
 		// init:init
 	return Object.freeze({
 		init: init,
-		draw: draw
+		draw: draw,
+		getDefaults: function(){return defaults;}
 	});
 };
 
