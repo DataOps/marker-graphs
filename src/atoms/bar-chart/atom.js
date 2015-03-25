@@ -22,7 +22,8 @@ function BarChart(){
 			color:"red"
 		},
 		barWidth: 50,
-		barMargin: 20
+		barMargin: 20,
+		labelSize: 20
 	};
 
 	// called by library
@@ -45,26 +46,40 @@ function BarChart(){
 
 		var paperHeight = parseInt(paper.attr('height'));
 
-		
-
-
-		var bars = paper.selectAll('rect')
+		var bars = paper.selectAll('g')
 			.data(data)
 
 		bars.enter()
+
 			.append('rect')
 				.attr('width', defaults.barWidth)
 				.attr('x', function (d,i) {
 					return i * (defaults.barWidth + defaults.barMargin);
 				})
-				.attr('y', function (d) {
-					return paperHeight - d.value;
-				})
+				.attr('fill', '#dd7777')
+				.attr('height',0)
+				.attr('y', paperHeight - defaults.labelSize)
+				
+				.transition()
 				.attr('height', function (d) {
 					return d.value;
 				})
-				.attr('fill', '#dd7777')
+				.attr('y', function (d) {
+					return paperHeight - d.value - defaults.labelSize*2;
+				});
 
+		bars.enter()
+			.append('text')
+				.text(function (d) {
+					return d.label;
+				})
+				.attr('x', function (d,i) {
+					return i * (defaults.barWidth + defaults.barMargin);
+				})
+				.attr('y', function (d) {
+					return paperHeight - defaults.labelSize;
+				})
+				.attr('fill','black')
 
 
 	};
