@@ -12,10 +12,10 @@ function tests () {
 	a = a()
 
 	a.init([
-		{label:"value1", "value":3},
-		{label:"value2", "value":5},
-		{label:"value3", "value":1},
-		{label:"value4", "value":8}
+		{label:"value1", "value":30},
+		{label:"value2", "value":50},
+		{label:"value3", "value":10},
+		{label:"value4", "value":80}
 	]);
 
 	a.draw(paper);

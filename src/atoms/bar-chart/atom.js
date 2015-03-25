@@ -20,7 +20,9 @@ function BarChart(){
 		lines:{},
 		highest:{
 			color:"red"
-		}
+		},
+		barWidth: 50,
+		barMargin: 20
 	};
 
 	// called by library
@@ -40,9 +42,30 @@ function BarChart(){
 	};
 
 	var draw = function (paper) {
-		var c = paper.append('circle');
 
-		c.attr({r:100, 'fill':'black'});
+		var paperHeight = parseInt(paper.attr('height'));
+
+		
+
+
+		var bars = paper.selectAll('rect')
+			.data(data)
+
+		bars.enter()
+			.append('rect')
+				.attr('width', defaults.barWidth)
+				.attr('x', function (d,i) {
+					return i * (defaults.barWidth + defaults.barMargin);
+				})
+				.attr('y', function (d) {
+					return paperHeight - d.value;
+				})
+				.attr('height', function (d) {
+					return d.value;
+				})
+				.attr('fill', '#dd7777')
+
+
 
 	};
 
