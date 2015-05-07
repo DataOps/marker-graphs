@@ -3,8 +3,8 @@ function tests () {
 
 	/// DEBUGGING
 	var paper = d3.select('.container').append('svg')
-		.attr('width', 500)
-		.attr('height', 300);
+		.attr('width', 1000)
+		.attr('height', 800);
 
 
 	// var a = atoms['3dPieChart'];
