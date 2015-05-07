@@ -7,7 +7,8 @@ function tests () {
 		.attr('height', 300);
 
 
-	var a = atoms['3dPieChart'];
+	// var a = atoms['3dPieChart'];
+	var a = atoms['worldchart'];
 
 	a = a()
 
