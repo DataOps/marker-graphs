@@ -43,11 +43,20 @@ function PieChart(){
 		};
 	};
 
+	// https://github.com/markmarkoh/datamaps
 	var draw = function (paper) {
 
 		// console.log(paper)
 		// var map = new Datamap({element: document.getElementById('container')});
-		var map = new Datamap({element: paper.node()});
+		var map = new Datamap({
+			element: paper.node(),
+			fills: {
+				defaultFill: 'rgb(200,200,200)'
+			},
+			geographyConfig: {
+				highlightFillColor: "rgb(200,90,90)"
+			}
+		});
 
 
 	};
