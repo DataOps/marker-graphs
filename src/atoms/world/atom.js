@@ -46,17 +46,45 @@ function PieChart(){
 	// https://github.com/markmarkoh/datamaps
 	var draw = function (paper) {
 
+		var convertedData = {};
+
+		data.forEach(function (pair) {
+			// only one pair
+			for(var k in pair){
+				convertedData[k] = {
+					fillKey: "LOW",
+					val: pair[k]
+				}
+				break; // ()
+			}
+		});
+
+		console.log(convertedData)
 		// console.log(paper)
 		// var map = new Datamap({element: document.getElementById('container')});
 		var map = new Datamap({
 			element: paper.node(),
 			fills: {
-				defaultFill: 'rgb(200,200,200)'
+				defaultFill: 'rgb(200,200,200)',
+				LOW: 'rgb(200,120,90)',
+				MEDIUM: 'rgb(200,100,200)',
+				HIGH: 'rgb(120,200,200)'
 			},
 			geographyConfig: {
-				highlightFillColor: "rgb(200,90,90)"
-			}
+				highlightFillColor: "rgb(200,90,90)",
+				popupTemplate: function(geo, d) {
+					if(d){
+
+		                return ['<div class="hoverinfo"><strong>',
+		                        'Number of things in ' + geo.properties.name,
+		                        ': ' + d.val,
+		                        '</strong></div>'].join('');
+					}
+	            }
+			},
+			data:convertedData
 		});
+		map.legend();
 
 
 	};

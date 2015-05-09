@@ -38,11 +38,17 @@ function tests () {
 
 	a = a();
 
+	// a.init([
+	// 	{label:"value1", "x":30, "y":40},
+	// 	{label:"value2", "x":50, "y":10},
+	// 	{label:"value3", "x":10, "y":140},
+	// 	{label:"value4", "x":80, "y":80}
+	// ]);
+
 	a.init([
-		{label:"value1", "x":30, "y":40},
-		{label:"value2", "x":50, "y":10},
-		{label:"value3", "x":10, "y":140},
-		{label:"value4", "x":80, "y":80}
+		{SWE: 400},
+		{USA: 200},
+		{NOR: 100}
 	]);
 
 	a.draw(paper);
