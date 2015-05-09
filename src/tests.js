@@ -1,11 +1,11 @@
 function tests () {
 	var atoms = Molecule.getAtoms();
 
-
 	/// DEBUGGING
 	var paper = d3.select('.container').append('svg')
-		.attr('width', 1000)
+		.attr('width', document.width - 20)
 		.attr('height', 800);
+
 
 	// DEBUGGING
 	//BarChart
@@ -14,15 +14,12 @@ function tests () {
 	// 	.attr('height', 300);
 
 
-	// var a = atoms['BarChart'];
 
-	// a = a()
-
-	// a.init([
-	// 	{label:"value1", "value":30},
-	// 	{label:"value2", "value":50},
-	// 	{label:"value3", "value":10},
-	// 	{label:"value4", "value":80}
+	// bc.init([
+	// 	{label:"value1", "x":30, "y":40},
+	// 	{label:"value2", "x":50, "y":10},
+	// 	{label:"value3", "x":10, "y":140},
+	// 	{label:"value4", "x":80, "y":80}
 	// ]);
 
 	// a.draw(paper);
@@ -34,24 +31,35 @@ function tests () {
 
 	// var a = atoms['3dPieChart'];
 	// var a = atoms['ScatterPlot'];
-	var a = atoms['worldchart'];
 
-	a = a();
+	var bc = atoms['BarChart'];
+	bc = bc()
 
-	// a.init([
-	// 	{label:"value1", "x":30, "y":40},
-	// 	{label:"value2", "x":50, "y":10},
-	// 	{label:"value3", "x":10, "y":140},
-	// 	{label:"value4", "x":80, "y":80}
+	bc.init([
+		{label:"BallaKjelli", "value":150},
+		{label:"Bengt", "value":10},
+		{label:"Jimmy", "value":30},
+		{label:"Morhaf", "value":60},
+		{label:"John", "value":30},
+		{label:"Patrik", "value":150},
+		{label:"Oscar", "value":100},
+		{label:"David", "value":80}
+	],{title:"Who rules tha most?"});
+
+	bc.draw(paper);
+
+	// // worldchart
+	// var wc = atoms['worldchart'];
+	// wc = wc();
+
+	// wc.init([
+	// 	{SWE: 400},
+	// 	{USA: 200},
+	// 	{NOR: 100}
 	// ]);
 
-	a.init([
-		{SWE: 400},
-		{USA: 200},
-		{NOR: 100}
-	]);
+	// wc.draw(paper);
 
-	a.draw(paper);
 
 };
 

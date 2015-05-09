@@ -59,7 +59,6 @@ function PieChart(){
 			}
 		});
 
-		console.log(convertedData)
 		// console.log(paper)
 		// var map = new Datamap({element: document.getElementById('container')});
 		var map = new Datamap({
