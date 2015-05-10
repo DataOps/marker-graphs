@@ -30,7 +30,7 @@ function BarChart(){
 			"#FF3D7F"
 		],
 		getFill: function (index) {
-			return this.fills[index % (this.fills.length+1)]
+			return this.fills[index % this.fills.length]
 		},
 		lines:{},
 		highest:{
