@@ -43,7 +43,7 @@ function tests () {
 
 	function barchart (paper) {	
 		var bc = atoms['BarChart'];
-		bc = bc()
+		bc = bc();
 
 		bc.init([
 			{label:"BallaKjelli", "value":150},
@@ -71,6 +71,24 @@ function tests () {
 		]);
 
 		wc.draw(paper);
+	}
+
+	function piechart (paper) {
+		var pc = atoms['PieChart'];
+		pc = pc();
+
+		pc.init([
+			{label:"BallaKjelli", "value":Math.random() * 100},
+			{label:"Bengt", "value":Math.random() * 100},
+			{label:"Jimmy", "value":Math.random() * 100},
+			{label:"Morhaf", "value":Math.random() * 100},
+			{label:"John", "value":Math.random() * 100},
+			{label:"Patrik", "value":Math.random() * 100},
+			{label:"Oscar", "value":Math.random() * 100},
+			{label:"David", "value":Math.random() * 100}
+		],{title:"Who rules tha most?"});
+
+		pc.draw(paper);
 	}
 
 	function chordchart (paper) {
@@ -116,19 +134,38 @@ function tests () {
 		sp.draw(paper);
 	};
 
+	function areachart (paper) {
+		var ac = atoms['AreaChart'];
+		ac = ac();
+
+
+		var lines = [];
+		for (var i = 0; i < 2; i++) {
+			var vals = [0];
+			for (var j = 0; j < 8; j++) {
+				vals.push(Math.random() * 600)
+			};
+			vals.push(0);
+			lines.push({label: "line-"+i, values:vals});
+		};
+
+		ac.init(lines);
+		ac.draw(paper);
+	};
+
 	var draw = function (graphs) {
 		for (var i = 0; i < graphs.length; i++) {
 			var pap = d3.select('.container').append('svg')
 				.attr('width', (graphs.length == 1 ? document.width - 40 : (document.width - 80)/2))
-				.attr('height', (graphs.length == 1 ? 800 : 400));
+				.attr('height', (graphs.length == 1 ? 600 : 400));
 
 			var g = graphs[i];
 			g(pap);
 		};
 	}
 
-	// draw([scatter3dchart, scatterchart, barchart, linechart, worldchart]);
-	draw([chordchart]);
+	draw([scatter3dchart, scatterchart, barchart, linechart, worldchart, chordchart, piechart, areachart]);
+	// draw([areachart]);
 
 
 

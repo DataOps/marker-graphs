@@ -47,6 +47,8 @@ function PieChart(){
 	var draw = function (paper) {
 
 		var convertedData = {};
+		var paperHeight = parseInt(paper.attr('height'));
+		var paperWidth = parseInt(paper.attr('width'));
 
 		data.forEach(function (pair) {
 			// only one pair
@@ -58,6 +60,13 @@ function PieChart(){
 				break; // ()
 			}
 		});
+
+		//  frame
+		paper.append('rect')
+			.attr('width', paperWidth)
+			.attr('height', paperHeight)
+			.attr('fill', "#fafafa")
+			.attr('stroke', "rgba(0,0,0,0.4)")
 
 		// console.log(paper)
 		// var map = new Datamap({element: document.getElementById('container')});

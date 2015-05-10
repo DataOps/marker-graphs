@@ -87,29 +87,6 @@ function PieChart(){
 			g.attr('style', '-webkit-transform: rotateX(60deg);');
 		};
 
-		// g.append("path")
-		// 	.attr("d", arc)
-		// 	.style("fill", function(d,i) { return "#" + (123*i); })
-		// 	.attr('stroke', "white")
-		// 	.attr("transform", "translate(" + radius + "," + radius + ")"); // move in cavas
-
-
-
-
-		// g.append("path")
-		// 	.attr("d", arc)
-		// 	.style("fill", function(d,i) { return "#" + (942*i); })
-		// 	.style("stroke", "white")
-		// 	.attr("transform", "translate(" + radius + "," + radius + ")"); // move in cavas
-
-
-		// g.append('circle')
-		//     .attr('cx', radius)
-		//     .attr('cy', radius+depth)
-		//     .attr('r', radius)
-		//     .style('fill', 'red');
-
-
 
 
 
