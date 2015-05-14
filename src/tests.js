@@ -153,6 +153,19 @@ function tests () {
 		ac.draw(paper);
 	};
 
+	function vennDiagram (paper) {
+		var vd = atoms['Venn-diagram'];
+		vd = vd();
+
+		vd.init([
+			{label:"Set A", "value":["Jimmy","Lindby","PB"]},
+			{label:"Set B", "value":["Jimmy","Skogis","Zemi"]},
+			{label:"Set C", "value":["Jimmy", "Lindby", "Petter","Mamma"]}
+		],{title:"Coolest Venn Diagram ever seen"});
+
+		vd.draw(paper);				
+	};
+
 	var draw = function (graphs) {
 		for (var i = 0; i < graphs.length; i++) {
 			var pap = d3.select('.container').append('svg')
@@ -164,12 +177,8 @@ function tests () {
 		};
 	}
 
-	draw([scatter3dchart, scatterchart, barchart, linechart, worldchart, chordchart, piechart, areachart]);
-	// draw([areachart]);
-
-
-
-
+	//draw([scatter3dchart, scatterchart, barchart, vennDiagram, linechart, worldchart, chordchart, piechart, areachart]);
+	draw([vennDiagram]);
 };
 
 
