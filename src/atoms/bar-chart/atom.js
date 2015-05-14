@@ -13,6 +13,7 @@ function BarChart(){
 
 	// default properties for the Atom
 	var defaults = {
+		title: "Barchart",
 		chart:{
 			background: "white",
 			foreground: "#333"
@@ -106,12 +107,14 @@ function BarChart(){
 				.attr('stroke',"rgba(0,0,0,0.2)")
 				// .attr('stroke-width',"2")
 				// .attr('stroke-alignment',"inner")
+				.attr('y', paperHeight- defaults.labelSize*2)
+				.transition()
+				.attr('y', function (d) {
+					return paperHeight - (d.value * scale) - defaults.labelSize*2;
+				})
 				.attr('height', function (d) {
 					return d.value * scale;
 				})
-				.attr('y', function (d) {
-					return paperHeight - (d.value * scale) - defaults.labelSize*2;
-				});
 				// .transition()
 
 
@@ -125,6 +128,9 @@ function BarChart(){
 					return xOffsetLeft + i * (barWidth + defaults.barMargin) + barWidth- shadowSize;
 				})
 				.attr('fill', 'rgba(0,0,0,0.08)')
+
+				.attr('y', paperHeight- defaults.labelSize*2)
+				.transition()
 				.attr('height', function (d) {
 					return d.value * scale;
 				})
@@ -165,9 +171,6 @@ function BarChart(){
 				.attr('x', function (d,i) {
 					return xOffsetLeft + i * (barWidth + defaults.barMargin) + barWidth /2;
 				})
-				.attr('y', function (d) {
-					return paperHeight - (d.value * scale) - defaults.labelSize*2 - defaults.labelSize;
-				})
 				.attr('width', barWidth)
 				.attr('stroke-width', ".05")
 				.attr('fill', function (d,i) {
@@ -179,6 +182,11 @@ function BarChart(){
 				// .attr('style', "text-transform: uppercase;")
 				.attr('font-size', barWidth /3)
 				.attr('font-weight', "600")
+				.attr('y', paperHeight- defaults.labelSize*2)
+				.transition()
+				.attr('y', function (d) {
+					return paperHeight - (d.value * scale) - defaults.labelSize*2 - defaults.labelSize;
+				})
 
 
 		if(defaults.title){
