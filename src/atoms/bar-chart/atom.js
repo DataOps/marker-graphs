@@ -13,6 +13,7 @@ function BarChart(){
 
 	// default properties for the Atom
 	var defaults = {
+		title: "Barchart",
 		chart:{
 			background: "white",
 			foreground: "#333"
