@@ -108,7 +108,7 @@ function BarChart(){
 				// .attr('stroke-width',"2")
 				// .attr('stroke-alignment',"inner")
 				.attr('y', paperHeight- defaults.labelSize*2)
-				.delay()
+				
 				.transition()
 				.attr('y', function (d) {
 					return paperHeight - (d.value * scale) - defaults.labelSize*2;
@@ -131,7 +131,7 @@ function BarChart(){
 				.attr('fill', 'rgba(0,0,0,0.08)')
 
 				.attr('y', paperHeight- defaults.labelSize*2)
-				.delay()
+				
 				.transition()
 				.attr('height', function (d) {
 					return d.value * scale;
@@ -185,7 +185,7 @@ function BarChart(){
 				.attr('font-size', barWidth /3)
 				.attr('font-weight', "600")
 				.attr('y', paperHeight- defaults.labelSize*2)
-				.delay()
+				
 				.transition()
 				.attr('y', function (d) {
 					return paperHeight - (d.value * scale) - defaults.labelSize*2 - defaults.labelSize;
