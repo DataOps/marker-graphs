@@ -17,7 +17,7 @@
 	// };
 
 var info = {
-	name: "Venn-diagram",
+	name: "VennDiagram",
 	description: "A 2 or 3 big Venn-diagram by the team"
 };
 
